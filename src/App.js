@@ -10,7 +10,13 @@ import "./App.css";
 class App extends Component {
   constructor() {
     super();
+
+    // this.onDivClicked = this.onDivClicked.bind(this);
   }
+
+  // onDivClicked() {
+  //   console.log('Name has been clicked');
+  // }
 
   render() {
     return (
@@ -18,6 +24,7 @@ class App extends Component {
         <div className="nav">Create Your CV</div>
         <div className="cv-template">
           <Contact />
+          <hr style={{ color: 'rgb(20, 20, 20)' }} />
           <Summary />
           <Skills />
           <Work />
