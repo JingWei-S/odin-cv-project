@@ -6,35 +6,37 @@ class Edit extends Component {
   }
 
   render() {
-    const { type, text, handleClick, handleInputChange, isInput, setIsInput } = this.props;
-    switch (type) {
-      case "p":
+    const {
+      id,
+      text,
+      handleClick,
+      handleInputChange,
+      isInput,
+      setIsInput,
+    } = this.props;
+    console.log(id);
+    switch (id) {
+      case "location":
         return isInput ? (
           <div>
-            <input type="text" onChange={handleInputChange} />{" "}
-            <button
-              onClick={() => {
-                this.setState({isInput: false});
-              }}
-            >
-              Save
-            </button>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
           </div>
         ) : (
-          <p onClick={handleClick}>{text}</p>
+          <p id={id} onClick={handleClick}>
+            {text}
+          </p>
         );
-      case "h2":
+      case "name":
         return isInput ? (
-            <div>
-            <input type="text" onChange={handleInputChange}/>
-            <button
-              onClick={setIsInput}
-            >
-              Save
-            </button>
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
           </div>
         ) : (
-          <h2 onClick={handleClick}>{text}</h2>
+          <h2 id={id} onClick={handleClick}>
+            {text}
+          </h2>
         );
       case "li":
         return <li onClick={handleClick}>{text}</li>;
