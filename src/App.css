@@ -66,8 +66,14 @@ h4 {
   display: flex;
 }
 
-h4 > span {
+.company-info {
+  display: flex;
+  align-items: center;
+}
+
+div > span {
   margin-left: auto;
+  margin-top: 0.4em;
 }
 
 .education p {

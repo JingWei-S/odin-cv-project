@@ -6,17 +6,70 @@ class Edit extends Component {
   }
 
   render() {
-    const {
-      id,
-      text,
-      handleClick,
-      handleInputChange,
-      isInput,
-      setIsInput,
-    } = this.props;
-    console.log(id);
-    switch (id) {
-      case "location":
+    const { id, text, handleClick, handleInputChange, isInput, setIsInput } =
+      this.props;
+    // console.log(/^skill\d+$/.test(id));
+    switch (true) {
+      case /^title\d+$/.test(id):
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <h4 id={id} onClick={handleClick}>
+            {text}
+          </h4>
+        );
+
+      case /^company\d+$/.test(id):
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <h4 id={id} onClick={handleClick}>
+            {text}
+          </h4>
+        );
+
+      case /^time\d+$/.test(id):
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <span id={id} onClick={handleClick}>
+            {text}
+          </span>
+        );
+
+      case /resp\d+_work\d+/.test(id):
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <li id={id} onClick={handleClick}>
+            {text}
+          </li>
+        );
+
+      case /^skill\d+$/.test(id):
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <li id={id} onClick={handleClick}>
+            {text}
+          </li>
+        );
+      case id === "location":
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
@@ -27,7 +80,51 @@ class Edit extends Component {
             {text}
           </p>
         );
-      case "name":
+      case id === "summary":
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <p id={id} onClick={handleClick}>
+            {text}
+          </p>
+        );
+      case id === "number":
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <p id={id} onClick={handleClick}>
+            {text}
+          </p>
+        );
+      case id === "email":
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <p id={id} onClick={handleClick}>
+            {text}
+          </p>
+        );
+      case id === "website":
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <p id={id} onClick={handleClick}>
+            {text}
+          </p>
+        );
+      case id === "name":
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
@@ -38,8 +135,6 @@ class Edit extends Component {
             {text}
           </h2>
         );
-      case "li":
-        return <li onClick={handleClick}>{text}</li>;
       default:
     }
   }
