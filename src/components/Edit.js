@@ -10,6 +10,90 @@ class Edit extends Component {
       this.props;
     // console.log(/^skill\d+$/.test(id));
     switch (true) {
+      case /^item\d+$/.test(id):
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <h4 id={id} onClick={handleClick}>
+            {text}
+          </h4>
+        );
+    
+        case /^degree\d+$/.test(id):
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <h4 id={id} onClick={handleClick}>
+            {text}
+          </h4>
+        );
+
+      case /li\d+_item\d+/.test(id):
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <li id={id} onClick={handleClick}>
+            {text}
+          </li>
+        );
+
+      case /^university\d+$/.test(id):
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <h4 id={id} onClick={handleClick}>
+            {text}
+          </h4>
+        );
+
+      case /^gpa\d+$/.test(id):
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <span id={id} onClick={handleClick}>
+            {text}
+          </span>
+        );
+
+      case /^course\d+$/.test(id):
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <span id={id} onClick={handleClick}>
+            {text}
+          </span>
+        );
+
+      case /^uni_time\d+$/.test(id):
+        return isInput ? (
+          <div>
+            <input id={id} type="text" onChange={handleInputChange} />
+            <button onClick={setIsInput}>Save</button>
+          </div>
+        ) : (
+          <span id={id} onClick={handleClick}>
+            {text}
+          </span>
+        );
+
       case /^title\d+$/.test(id):
         return isInput ? (
           <div>

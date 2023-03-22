@@ -17,6 +17,7 @@
   border: 1px solid black;
   box-sizing: border-box;
   padding: 1em;
+  overflow: scroll;
 }
 
 .contact-info {
@@ -71,6 +72,15 @@ h4 {
   align-items: center;
 }
 
+.university-information {
+  display: flex;
+  align-items: center;
+}
+
+.university-information > span {
+  margin-left: auto;
+}
+
 div > span {
   margin-left: auto;
   margin-top: 0.4em;
@@ -83,4 +93,8 @@ div > span {
 
 .others ul > li > span:last-child {
   font-weight: bold;
+}
+
+.others ul {
+  margin-bottom: 0.3em;
 }
