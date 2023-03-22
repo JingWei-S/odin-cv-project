@@ -14,7 +14,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <h4 id={id} onClick={handleClick}>
@@ -26,7 +26,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <h4 id={id} onClick={handleClick}>
@@ -38,7 +38,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <li id={id} onClick={handleClick}>
@@ -50,7 +50,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <h4 id={id} onClick={handleClick}>
@@ -62,7 +62,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <span id={id} onClick={handleClick}>
@@ -74,7 +74,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <span id={id} onClick={handleClick}>
@@ -86,7 +86,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <span id={id} onClick={handleClick}>
@@ -110,7 +110,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <h4 id={id} onClick={handleClick}>
@@ -122,7 +122,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <span id={id} onClick={handleClick}>
@@ -134,7 +134,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <li id={id} onClick={handleClick}>
@@ -146,7 +146,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <li id={id} onClick={handleClick}>
@@ -157,18 +157,18 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
-          <p id={id} onClick={handleClick}>
+          <div id={id} onClick={handleClick}>
             {text}
-          </p>
+          </div>
         );
       case id === "summary":
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <p id={id} onClick={handleClick}>
@@ -179,7 +179,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <p id={id} onClick={handleClick}>
@@ -190,7 +190,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <p id={id} onClick={handleClick}>
@@ -201,7 +201,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <p id={id} onClick={handleClick}>
@@ -211,8 +211,8 @@ class Edit extends Component {
       case id === "name":
         return isInput ? (
           <div>
-            <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <input id={id} type="text" placeholder="Your Name" onChange={handleInputChange} />
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <h2 id={id} onClick={handleClick}>
