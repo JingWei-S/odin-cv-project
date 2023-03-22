@@ -11,25 +11,38 @@ class App extends Component {
   constructor() {
     super();
 
-    // this.onDivClicked = this.onDivClicked.bind(this);
+    this.state = { edit: true };
+    this.canEdit = this.canEdit.bind(this);
+    this.rejectEdit = this.rejectEdit.bind(this);
   }
 
   // onDivClicked() {
   //   console.log('Name has been clicked');
   // }
+  canEdit() {
+    this.setState({ edit: true });
+    // console.log(this.state.edit);
+  }
+
+  rejectEdit() {
+    this.setState({ edit: false });
+    console.log(this.state.edit);
+  }
 
   render() {
+    const { edit } = this.state;
+
     return (
       <div className="container">
         <div className="nav">Create Your CV</div>
         <div className="cv-template">
-          <Contact />
-          <hr style={{ color: 'rgb(20, 20, 20)' }} />
-          <Summary />
-          <Skills />
-          <Work />
-          <Education />
-          <Others />
+          <Contact isEdit={edit} canEdit={this.canEdit} rejectEdit={this.rejectEdit}/>
+          <hr style={{ color: "rgb(20, 20, 20)" }} />
+          <Summary isEdit={edit} canEdit={this.canEdit} rejectEdit={this.rejectEdit}/>
+          <Skills isEdit={edit} canEdit={this.canEdit} rejectEdit={this.rejectEdit}/>
+          <Work isEdit={edit} canEdit={this.canEdit} rejectEdit={this.rejectEdit}/>
+          <Education isEdit={edit} canEdit={this.canEdit} rejectEdit={this.rejectEdit}/>
+          <Others isEdit={edit} canEdit={this.canEdit} rejectEdit={this.rejectEdit}/>
         </div>
         <div className="footer">Made By Jing</div>
       </div>

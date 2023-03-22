@@ -41,22 +41,30 @@ class Skills extends Component {
   }
 
   handleClick(e) {
-    const id = e.target.id;
-    const elements = this.state.elements;
-    const index = elements.findIndex((element) => element.id === id);
-    const updatedElement = [...elements];
-    updatedElement[index].isInput = true;
-    this.setState({ elements: updatedElement });
+    const { isEdit, rejectEdit } = this.props;
+    if (isEdit) {
+      rejectEdit();
+      const id = e.target.id;
+      const elements = this.state.elements;
+      const index = elements.findIndex((element) => element.id === id);
+      const updatedElement = [...elements];
+      updatedElement[index].isInput = true;
+      this.setState({ elements: updatedElement });
+    }
   }
 
   setIsInput(e) {
-    const id = e.target.previousElementSibling.id;
-    const elements = this.state.elements;
-    const index = elements.findIndex((element) => element.id === id);
-    console.log(index);
-    const updatedElement = [...elements];
-    updatedElement[index].isInput = false;
-    this.setState({ elements: updatedElement });
+    const { isEdit, canEdit } = this.props;
+    if (!isEdit) {
+      const id = e.target.previousElementSibling.id;
+      const elements = this.state.elements;
+      const index = elements.findIndex((element) => element.id === id);
+      console.log(index);
+      const updatedElement = [...elements];
+      updatedElement[index].isInput = false;
+      this.setState({ elements: updatedElement });
+      canEdit();
+    }
   }
 
   handleInputChange(e) {
@@ -76,14 +84,16 @@ class Skills extends Component {
         <ul>
           {elements.map((element) => {
             // <li>{element.text}</li>
-            return (<Edit
-              id={element.id}
-              text={element.text}
-              handleClick={this.handleClick}
-              handleInputChange={this.handleInputChange}
-              setIsInput={this.setIsInput}
-              isInput={element.isInput}
-            ></Edit>)
+            return (
+              <Edit
+                id={element.id}
+                text={element.text}
+                handleClick={this.handleClick}
+                handleInputChange={this.handleInputChange}
+                setIsInput={this.setIsInput}
+                isInput={element.isInput}
+              ></Edit>
+            );
           })}
         </ul>
       </div>

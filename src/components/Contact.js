@@ -24,22 +24,33 @@ class Contact extends Component {
   }
 
   handleClick(e) {
-    const id = e.target.id;
-    const elements = this.state.elements;
-    const index = elements.findIndex((element) => element.id === id);
-    const updatedElement = [...elements];
-    updatedElement[index].isInput = true;
-    this.setState({ elements: updatedElement });
+    const { isEdit, rejectEdit } = this.props;
+    if (isEdit) {
+      rejectEdit();
+      const id = e.target.id;
+      const elements = this.state.elements;
+      const index = elements.findIndex((element) => element.id === id);
+      const updatedElement = [...elements];
+      updatedElement[index].isInput = true;
+      this.setState({ elements: updatedElement });
+    }
+    // console.log(isEdit)
   }
 
   setIsInput(e) {
-    const id = e.target.previousElementSibling.id;
-    const elements = this.state.elements;
-    const index = elements.findIndex((element) => element.id === id);
-    console.log(index);
-    const updatedElement = [...elements];
-    updatedElement[index].isInput = false;
-    this.setState({ elements: updatedElement });
+    const { isEdit, canEdit } = this.props;
+    if (!isEdit) {
+      const id = e.target.previousElementSibling.id;
+      const elements = this.state.elements;
+      const index = elements.findIndex((element) => element.id === id);
+      // console.log(index);
+      const updatedElement = [...elements];
+      updatedElement[index].isInput = false;
+      this.setState({ elements: updatedElement });
+      canEdit();
+    }
+    
+    // console.log(isEdit);
   }
 
   handleInputChange(e) {

@@ -118,43 +118,46 @@ class Work extends Component {
   }
 
   handleClick(e) {
-    const id = e.target.id;
-    const type = id.slice(0, -1);
-    const index = Number(id[id.length - 1]);
-    const elements = this.state.elements;
-    const updatedElement = [...elements];
-    if (/resp\d+_work\d+/.test(id)) {
-      // console.log(type)
-      updatedElement[index-1].resp[id[4]-1].isInput = true;
-    } else {
-      updatedElement[index - 1][type].isInput = true;
+    const { isEdit, rejectEdit } = this.props;
+    if (isEdit) {
+      rejectEdit();
+      const id = e.target.id;
+      const type = id.slice(0, -1);
+      const index = Number(id[id.length - 1]);
+      const elements = this.state.elements;
+      const updatedElement = [...elements];
+      if (/resp\d+_work\d+/.test(id)) {
+        // console.log(type)
+        updatedElement[index - 1].resp[id[4] - 1].isInput = true;
+      } else {
+        updatedElement[index - 1][type].isInput = true;
+      }
+      this.setState({ elements: updatedElement });
     }
-    this.setState({ elements: updatedElement });
   }
 
   setIsInput(e) {
-    const id = e.target.previousElementSibling.id;
-    const type = id.slice(0, -1);
-    const index = Number(id[id.length - 1]);
-    // console.log(type)
-    const elements = this.state.elements;
-    const updatedElement = [...elements];
-    if (/resp\d+_work\d+/.test(id)) {
+    const { isEdit, canEdit } = this.props;
+    if (!isEdit) {
+      const id = e.target.previousElementSibling.id;
+      const type = id.slice(0, -1);
+      const index = Number(id[id.length - 1]);
       // console.log(type)
-      updatedElement[index-1].resp[id[4]-1].isInput = false;
-    } else {
-      updatedElement[index - 1][type].isInput = false;
+      const elements = this.state.elements;
+      const updatedElement = [...elements];
+      if (/resp\d+_work\d+/.test(id)) {
+        // console.log(type)
+        updatedElement[index - 1].resp[id[4] - 1].isInput = false;
+      } else {
+        updatedElement[index - 1][type].isInput = false;
+      }
+      this.setState({ elements: updatedElement });
+      canEdit();
     }
-    this.setState({ elements: updatedElement });
   }
 
   handleInputChange(e) {
-    // const id = e.target.id;
-    // const elements = this.state.elements;
-    // const index = elements.findIndex((element) => element.id === id);
-    // const updatedElement = [...elements];
-    // updatedElement[index].text = e.target.value;
-    // this.setState({ elements: updatedElement });
+    
     const id = e.target.id;
     const type = id.slice(0, -1);
     const index = Number(id[id.length - 1]);
@@ -163,7 +166,7 @@ class Work extends Component {
     const updatedElement = [...elements];
     if (/resp\d+_work\d+/.test(id)) {
       // console.log(type)
-      updatedElement[index-1].resp[id[4]-1].text = e.target.value;
+      updatedElement[index - 1].resp[id[4] - 1].text = e.target.value;
     } else {
       updatedElement[index - 1][type].text = e.target.value;
     }

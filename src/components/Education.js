@@ -43,23 +43,31 @@ class Education extends Component {
   }
 
   handleClick(e) {
-    const id = e.target.id;
-    const type = id.slice(0, -1);
-    const index = Number(id[id.length - 1]);
-    const elements = this.state.elements;
-    const updatedElement = [...elements];
-    updatedElement[index - 1][type].isInput = true;
-    this.setState({ elements: updatedElement });
+    const { isEdit, rejectEdit } = this.props;
+    if (isEdit) {
+      rejectEdit();
+      const id = e.target.id;
+      const type = id.slice(0, -1);
+      const index = Number(id[id.length - 1]);
+      const elements = this.state.elements;
+      const updatedElement = [...elements];
+      updatedElement[index - 1][type].isInput = true;
+      this.setState({ elements: updatedElement });
+    }
   }
 
   setIsInput(e) {
-    const id = e.target.previousElementSibling.id;
-    const type = id.slice(0, -1);
-    const index = Number(id[id.length - 1]);
-    const elements = this.state.elements;
-    const updatedElement = [...elements];
-    updatedElement[index - 1][type].isInput = false;
-    this.setState({ elements: updatedElement });
+    const { isEdit, canEdit } = this.props;
+    if (!isEdit) {
+      const id = e.target.previousElementSibling.id;
+      const type = id.slice(0, -1);
+      const index = Number(id[id.length - 1]);
+      const elements = this.state.elements;
+      const updatedElement = [...elements];
+      updatedElement[index - 1][type].isInput = false;
+      this.setState({ elements: updatedElement });
+      canEdit();
+    }
   }
 
   handleInputChange(e) {

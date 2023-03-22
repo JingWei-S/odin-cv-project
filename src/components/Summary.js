@@ -20,11 +20,19 @@ class Summary extends Component {
   }
 
   handleClick() {
-    this.setState({isInput: true});
+    const { isEdit, rejectEdit } = this.props;
+    if (isEdit) {
+      rejectEdit();
+      this.setState({ isInput: true });
+    }
   }
 
   setIsInput() {
-    this.setState({ isInput: false });
+    const { isEdit, canEdit } = this.props;
+    if (!isEdit) {
+      this.setState({ isInput: false });
+      canEdit();
+    }
   }
 
   handleInputChange(e) {
@@ -32,7 +40,7 @@ class Summary extends Component {
   }
 
   render() {
-    const {id} = this.state;
+    const { id } = this.state;
     return (
       <div className="summary">
         <h3>Summary</h3>

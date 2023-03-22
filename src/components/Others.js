@@ -54,34 +54,42 @@ class Others extends Component {
   }
 
   handleClick(e) {
-    const id = e.target.id;
-    const type = id.slice(0, -1);
-    const index = Number(id[id.length - 1]);
-    const elements = this.state.elements;
-    const updatedElement = [...elements];
-    if (/li\d+_item\d+/.test(id)) {
-      console.log(updatedElement[index - 1].list)
-      updatedElement[index - 1].list[id[2] - 1].isInput = true;
-    } else {
-      updatedElement[index - 1][type].isInput = true;
+    const { isEdit, rejectEdit } = this.props;
+    if (isEdit) {
+      rejectEdit();
+      const id = e.target.id;
+      const type = id.slice(0, -1);
+      const index = Number(id[id.length - 1]);
+      const elements = this.state.elements;
+      const updatedElement = [...elements];
+      if (/li\d+_item\d+/.test(id)) {
+        console.log(updatedElement[index - 1].list);
+        updatedElement[index - 1].list[id[2] - 1].isInput = true;
+      } else {
+        updatedElement[index - 1][type].isInput = true;
+      }
+      this.setState({ elements: updatedElement });
     }
-    this.setState({ elements: updatedElement });
   }
 
   setIsInput(e) {
-    const id = e.target.previousElementSibling.id;
-    const type = id.slice(0, -1);
-    const index = Number(id[id.length - 1]);
-    // console.log(type)
-    const elements = this.state.elements;
-    const updatedElement = [...elements];
-    if (/li\d+_item\d+/.test(id)) {
+    const { isEdit, canEdit } = this.props;
+    if (!isEdit) {
+      const id = e.target.previousElementSibling.id;
+      const type = id.slice(0, -1);
+      const index = Number(id[id.length - 1]);
       // console.log(type)
-      updatedElement[index - 1].list[id[2] - 1].isInput = false;
-    } else {
-      updatedElement[index - 1][type].isInput = false;
+      const elements = this.state.elements;
+      const updatedElement = [...elements];
+      if (/li\d+_item\d+/.test(id)) {
+        // console.log(type)
+        updatedElement[index - 1].list[id[2] - 1].isInput = false;
+      } else {
+        updatedElement[index - 1][type].isInput = false;
+      }
+      this.setState({ elements: updatedElement });
+      canEdit();
     }
-    this.setState({ elements: updatedElement });
   }
 
   handleInputChange(e) {
