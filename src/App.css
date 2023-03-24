@@ -2,9 +2,12 @@
   text-align: center;
 }
 
+
+
 .container {
   display: flex;
   flex-direction: column;
+  margin-bottom: 0.5em;
 }
 
 .nav {
@@ -18,6 +21,7 @@
   box-sizing: border-box;
   padding: 1em;
   overflow: scroll;
+  background-color: white;
 }
 
 .contact-info {
@@ -73,6 +77,10 @@ h4 {
   align-items: center;
 }
 
+.company-info > div {
+  margin-left: auto;
+}
+
 .university-information {
   display: flex;
   align-items: center;
@@ -112,6 +120,7 @@ button {
   /* color: green; */
   font-size: 14px;
   cursor: pointer;
+  margin-left: 0.4em;
 }
 
 button:hover {
@@ -136,3 +145,62 @@ input[type="text"] {
   width: 10em;
 }
 
+.summary > div {
+  margin-top: 0.3em;
+  display: flex;
+  align-items: center;
+}
+
+.skills input[type='text'] {
+  width: calc(8.27in - 26px - 6em);
+  /* height: fit-content; */
+}
+
+
+.work-experience ul input[type="text"] {
+  width: calc(8.27in - 26px - 6em);
+}
+
+.others input[type="text"] {
+  width: 30em;
+}
+
+.nav {
+  font-size: 2em;
+  margin-bottom: 0.2em;
+  margin-top: 0.2em;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.nav p {
+  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 36px;
+  font-weight: bolder;
+  color: white;
+  text-shadow: 2px 2px 4px #929293; /* horizontal-offset vertical-offset 'blur' colour */
+  -moz-text-shadow: 0 0 4px #929293;
+  -webkit-text-shadow: 0 0 4px #929293;
+}
+/* .footer {
+  font-weight: bold;
+  margin-top: 0.3em;
+  background-color: lightcoral;
+  color: white;
+  width: 100vw;
+} */
+
+button#download {
+  font-size: 16px;
+  padding: 0.3em 3em;
+  margin-left: auto;
+  border-radius: 8px;
+  position: absolute;
+  left: 70%;
+  border: 1px solid rgb(127, 126, 126);
+}

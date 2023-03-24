@@ -36,10 +36,12 @@ class Edit extends Component {
 
       case /li\d+_item\d+/.test(id):
         return isInput ? (
-          <div>
-            <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>✔️</button>
-          </div>
+          <li>
+              <div>
+                <input id={id} type="text" onChange={handleInputChange} />
+                <button onClick={setIsInput}>✔️</button>
+              </div>
+          </li>
         ) : (
           <li id={id} onClick={handleClick}>
             {text}
@@ -98,7 +100,7 @@ class Edit extends Component {
         return isInput ? (
           <div>
             <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>Save</button>
+            <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
           <h4 id={id} onClick={handleClick}>
@@ -132,10 +134,12 @@ class Edit extends Component {
 
       case /resp\d+_work\d+/.test(id):
         return isInput ? (
-          <div>
-            <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>✔️</button>
-          </div>
+          <li>
+              <div>
+                <input id={id} type="text" onChange={handleInputChange} />
+                <button onClick={setIsInput}>✔️</button>
+              </div>
+          </li>
         ) : (
           <li id={id} onClick={handleClick}>
             {text}
@@ -144,10 +148,12 @@ class Edit extends Component {
 
       case /^skill\d+$/.test(id):
         return isInput ? (
-          <div>
-            <input id={id} type="text" onChange={handleInputChange} />
-            <button onClick={setIsInput}>✔️</button>
-          </div>
+          <li>
+              <div>
+                <input id={id} type="text" onChange={handleInputChange} />
+                <button onClick={setIsInput}>✔️</button>
+              </div>
+          </li>
         ) : (
           <li id={id} onClick={handleClick}>
             {text}
@@ -167,7 +173,7 @@ class Edit extends Component {
       case id === "summary":
         return isInput ? (
           <div>
-            <input id={id} type="text" onChange={handleInputChange} />
+            <textarea rows='4' cols='85' id={id} type="text" onChange={handleInputChange} />
             <button onClick={setIsInput}>✔️</button>
           </div>
         ) : (
